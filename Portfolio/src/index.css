@@ -1,0 +1,88 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/*@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}*/
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-animate-light {
+  background: linear-gradient(270deg, #f3f4f6, #c7d2fe, #e0f2fe);
+  background-size: 600% 600%;
+  animation: gradientFlow 10s ease infinite;
+}
+
+.gradient-animate-dark {
+  background: linear-gradient(
+          270deg,
+          #0f172a,    /* Azul petróleo profundo */
+          #264653,    /* Azul-gris oscuro */
+          #191970,    /* Azul-gris medio */
+          #2B2D42,    /* Repetimos para que sea suave */
+          #0f172a
+  );
+  background-size: 500% 500%;
+  animation: gradientFlow 12s ease infinite;
+}
+

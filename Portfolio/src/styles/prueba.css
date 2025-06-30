@@ -1,0 +1,126 @@
+/* Estilos generales */
+.profile-container {
+    padding: 5rem;
+    align-items: center;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+/* Colores específicos */
+.btn-hover.glow {
+    background-color: #3b82f6; /* azul claro */
+}
+.btn-hover.rise {
+    background-color: #2563eb; /* azul medio */
+}
+.btn-hover.shadow-pop {
+    background-color: #1e40af; /* azul oscuro */
+}
+.btn-hover.neon {
+    background-color: #111827; /* casi negro para el efecto neon */
+    color: #00f7ff;
+}
+.btn-hover.ripple {
+    background-color: #0ea5e9; /* celeste */
+}
+.btn-hover.flip {
+    background-color: #9333ea; /* morado */
+}
+.btn-hover.heartbeat {
+    background-color: #ef4444; /* rojo */
+}
+.btn-hover.expand {
+    background-color: #10b981; /* verde esmeralda */
+}
+.btn-hover.shine {
+    background-color: #f59e0b; /* amarillo dorado */
+}
+.btn-hover.jump {
+    background-color: #ec4899; /* rosa fuerte */
+}
+
+/* Hover específicos */
+.btn-hover.glow:hover {
+    box-shadow: 0 0 15px #3b82f6, 0 0 30px #3b82f6;
+    transform: scale(1.05);
+}
+.btn-hover.rise:hover {
+    transform: translateY(-5px);
+    background-color: #1d4ed8;
+}
+.btn-hover.shadow-pop:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    transform: translateY(-4px);
+}
+.btn-hover.neon:hover {
+    box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff, 0 0 30px #00f7ff;
+}
+.btn-hover.ripple:hover {
+    animation: ripple 0.6s ease-out;
+}
+@keyframes ripple {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.2); opacity: 0; }
+}
+.btn-hover.flip:hover {
+    transform: rotateY(180deg);
+}
+.btn-hover.heartbeat:hover {
+    animation: heartbeat 1s ease-in-out infinite;
+}
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+.btn-hover.expand:hover {
+    transform: scale(1.15);
+}
+.btn-hover.shine {
+    position: relative;
+    overflow: hidden;
+}
+.btn-hover.shine::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+    transform: skewX(-20deg);
+}
+.btn-hover.shine:hover::after {
+    left: 125%;
+    transition: left 0.75s;
+}
+.btn-hover.jump:hover {
+    animation: jump 0.4s ease-in-out;
+}
+@keyframes jump {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}

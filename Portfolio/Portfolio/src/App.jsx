@@ -2,53 +2,41 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { Welcome } from "./pages/Welcome.jsx";
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-
 import { Navegacion } from "./components/Navegacion.jsx";
 import { Profile } from "./pages/Profile.jsx";
 import { Experiencia } from "./pages/Experiencia.jsx";
+import { Projects } from "./pages/Projects.jsx";
+import { Contact } from "./pages/Contact.jsx";
 
 function App() {
-    const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
-    const [animateClass, setAnimateClass] = useState('');
-    const [bgGradient, setBgGradient] = useState('');
+    const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
 
     useEffect(() => {
         const root = document.documentElement;
-       /* root.classList.toggle('dark', theme === 'dark');
+        root.classList.toggle('dark', theme === 'dark');
         root.classList.toggle('light', theme === 'light');
-        localStorage.setItem('theme', theme);*/
-        console.log('Theme:', theme)
-
-
-        const animClass = theme === 'dark' ? 'gradient-animate-dark' : 'gradient-animate-light';
-        const finalBg = theme === 'dark'
-            ? 'bg-final-dark'
-            : 'bg-final-light';
-        setAnimateClass(animClass);
-        console.log('animclass:', animClass)
-        const timeout = setTimeout(() => {
-            setAnimateClass(animClass);
-            setBgGradient(finalBg);
-        }, 1000);
-
-        return () => clearTimeout(timeout);
+        localStorage.setItem('theme', theme);
     }, [theme]);
 
     return (
         <Router>
-            <div className={`min-h-screen w-screen grid pb-5 transition-colors duration-500 ${animateClass} `}>
-
+            <div className={`min-h-screen w-screen transition-colors duration-500 ${
+                theme === 'dark' 
+                    ? 'bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900' 
+                    : 'bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-100'
+            }`}>
                 <Routes>
-                    <Route path="/" element={<Welcome message="Bienvenido" />} />
-                    <Route path="/welcome" element={<Welcome message="Bienvenido" />} />
+                    <Route path="/" element={<Welcome />} />
+                    <Route path="/welcome" element={<Welcome />} />
                     <Route path="/profile" element={<Profile theme={theme} />} />
                     <Route path="/experiencia" element={<Experiencia />} />
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/contact" element={<Contact />} />
                 </Routes>
-            </div>
-            <div className="w-screen flex bottom-0">
                 <Navegacion onThemeChange={setTheme} />
             </div>
         </Router>
     );
 }
+
 export default App;
